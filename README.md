@@ -45,7 +45,7 @@ https://sphero.docsapp.io/docs/get-started
 # Demo Application
 
 **Simple LEDs control Example:**     
-```java
+```js
 async function startProgram(){
     setMainLed({r:0, g:0, b:255}); // This will turn the sphero Blue
     await delay(2);                // Stay on this condition for 2s
@@ -54,7 +54,7 @@ async function startProgram(){
 ```  
 
 **Making the Sphero run in a triangle shape:**  
-```java
+```js
 async function startProgram(){
     setMainLed({r:50, g:50, b:50}); // Set light faded white
     setHeading(0);                  // adjust the position for 0 degrees
@@ -76,7 +76,7 @@ async function startProgram(){
 ``` 
 
 **Making it in a smarter way :)**  
-```java
+```js
 async function startProgram(){
   var angle = 0;
   setMainLed({r:50, g:50, b:50}); // Set light faded white
