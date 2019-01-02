@@ -31,13 +31,14 @@ It will go back to the main screen of the APP and show the name of the connected
 
 # Creating a Javascript Project
 
-Click on the Menu "Programs" and Select "Create":
+Click on the Menu "Programs" and Select "Create":  
 ![Sphero on Microsoft Store](images/SpheroNewProject.png)  
 
 Name the Project and Select Program Type "Text", pick your robot and Click on "Create":  
 ![Sphero on Microsoft Store](SpheroNewJavaScriptProgram.png)  
 
-
+The environment where you can write the code looks like this:  
+![Coding](images/SpheroJavaScript.png)
 
 
 
