@@ -30,7 +30,6 @@ It will go back to the main screen of the APP and show the name of the connected
 ![Sphero on Microsoft Store](images/Conected.png)
 
 # Creating a Javascript Project
-
 Click on the Menu "Programs" and Select "Create":  
 ![Sphero on Microsoft Store](images/SpheroNewProject.png)  
 
@@ -40,10 +39,58 @@ Name the Project and Select Program Type "Text", pick your robot and Click on "C
 The environment where you can write the code looks like this:  
 ![Coding](images/SpheroJavaScript.png)
 
+A Great source of information about the Javascript API is:  
+https://sphero.docsapp.io/docs/get-started
 
+# Demo Application
 
+**Simple LEDs control Example:**     
+```java
+async function startProgram(){
+    setMainLed({r:0, g:0, b:255}); // This will turn the sphero Blue
+    await delay(2);                // Stay on this condition for 2s
+    await fade({ r: 0, g: 255, b: 0 }, { r: 255, g: 0, b: 0 }, 3.0) // This Command will change lights from Green to RED in 3s
+}
+```  
 
+**Making the Sphero run in a triangle shape:**  
+```java
+async function startProgram(){
+    setMainLed({r:50, g:50, b:50}); // Set light faded white
+    setHeading(0);                  // adjust the position for 0 degrees
+    setSpeed(50);                   // run at speed 50 
+    await delay(2);                 // Stay on this condition for 2s
+    setSpeed(0);                    // Stop
+    
+    setHeading(120);                // adjust the position for 120 degrees
+    setSpeed(50);                   // run at speed 50 
+    await delay(2);                 // Stay on this condition for 2s
+    setSpeed(0);                    // Stop
+    
+    setHeading(240);                // adjust the position for 240 degrees
+    setSpeed(50);                   // run at speed 50 
+    await delay(2);                 // Stay on this condition for 2s
+    setSpeed(0);                    // Stop
+    await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 3.0) // Fade lights off
+}
+``` 
 
+**Making it in a smarter way :)**  
+```java
+async function startProgram(){
+  var angle = 0;
+  setMainLed({r:50, g:50, b:50}); // Set light faded white
+  while (angle <= 240)
+  {
+    setHeading(angle);              // adjust the position
+    setSpeed(50);                   // run at speed 50 
+    await delay(2);                 // Stay on this condition for 2s
+    setSpeed(0);                    // Stop
+    angle += 120;
+   }
+   await fade({ r: 255, g: 255, b: 255 }, { r: 0, g: 0, b: 0 }, 3.0) // Fade lights off
+}
+``` 
 
 
 
